@@ -4,6 +4,6 @@ export type IGenericErrorResponse = {
     errorMessages: IGenericErrorMessage[];
 };
 export type IGenericErrorMessage = {
-    path: string;
+    path: string | number;
     message: string;
 };

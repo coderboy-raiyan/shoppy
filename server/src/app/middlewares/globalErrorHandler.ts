@@ -2,9 +2,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import { ZodError } from 'zod';
 import config from '../../config';
 import ApiError from '../../errors/ApiError';
 import handleMongooseValidationError from '../../errors/handleMongooseValidationError';
+import handleZodError from '../../errors/handleZodError';
 import { IGenericErrorMessage } from '../../interfaces/error';
 
 function globalErrorHandler(error: any, req: Request, res: Response, next: NextFunction) {
@@ -14,6 +16,11 @@ function globalErrorHandler(error: any, req: Request, res: Response, next: NextF
 
     if (error.name === 'ValidationError') {
         const modifiedError = handleMongooseValidationError(error);
+        statusCode = modifiedError.statusCode;
+        message = modifiedError.message;
+        errorMessages = modifiedError.errorMessages;
+    } else if (error instanceof ZodError) {
+        const modifiedError = handleZodError(error);
         statusCode = modifiedError.statusCode;
         message = modifiedError.message;
         errorMessages = modifiedError.errorMessages;
