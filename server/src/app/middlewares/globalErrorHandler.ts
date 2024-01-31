@@ -14,6 +14,8 @@ function globalErrorHandler(error: any, req: Request, res: Response, next: NextF
     let message = 'Internal Server Error';
     let errorMessages: IGenericErrorMessage[] = [];
 
+    console.log(error, 'global');
+
     if (error.name === 'ValidationError') {
         const modifiedError = handleMongooseValidationError(error);
         statusCode = modifiedError.statusCode;

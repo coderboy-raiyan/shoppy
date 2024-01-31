@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 async function bootstrap() {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/ecommerce');
+        await mongoose.connect(config.DB_URI as string);
         console.log('DB connected Successfully');
         server.listen(PORT, () => {
             console.log(`Example app listening on port ${PORT}`);
