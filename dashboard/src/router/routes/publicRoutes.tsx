@@ -2,6 +2,7 @@ import { lazy } from "react";
 
 const Login = lazy(() => import("../../app/auth/login"));
 const Register = lazy(() => import("../../app/auth/register"));
+const AdminLogin = lazy(() => import("../../app/auth/adminLogin"));
 
 const publicRoutes = [
   {
@@ -11,6 +12,10 @@ const publicRoutes = [
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/admin/login",
+    element: <AdminLogin />,
   },
 ];
 

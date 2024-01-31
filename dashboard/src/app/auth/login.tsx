@@ -24,6 +24,15 @@ function Login() {
     <section className="min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center">
       <div className="w-[380px] text-[#d0d2d6] p-2">
         <div className="bg-[#283046] p-4 rounded-md">
+          <div className="h-[70px] flex justify-center items-center">
+            <div className="w-[180px] h-[60px]">
+              <img
+                className="w-full h-full"
+                src="http://localhost:5173/images/logo.png"
+                alt=""
+              />
+            </div>
+          </div>
           <h2 className="text-xl mb-3 text-center">Welcome to ecommerce</h2>
 
           <form onSubmit={handleSubmit}>

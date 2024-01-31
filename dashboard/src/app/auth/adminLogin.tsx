@@ -1,9 +1,12 @@
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { admin_login } from "../../store/reducers/authReducer";
 
-function Register() {
+function AdminLogin() {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -17,11 +20,11 @@ function Register() {
       };
     });
   };
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    await dispatch(admin_login(formData));
     console.log(formData);
   };
-  console.log(formData);
   return (
     <section className="min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center">
       <div className="w-[380px] text-[#d0d2d6] p-2">
@@ -35,31 +38,15 @@ function Register() {
               />
             </div>
           </div>
-          <h2 className="text-xl mb-3 text-center">
-            Let's start a new journey with us
-          </h2>
 
           <form onSubmit={handleSubmit}>
-            <div className="flex flex-col w-full gap-1 mb-3 ">
-              <label htmlFor="name">Name</label>
-              <input
-                onChange={handleInputChange}
-                value={formData.name}
-                className="px-3 text-[#d0d2d6]  py-2 outline-none border-slate-700 bg-transparent border rounded focus:border-indigo-500 overflow-hidden"
-                type="text"
-                name="name"
-                placeholder="name"
-                id="name"
-                required
-              />
-            </div>
             <div className="flex flex-col w-full gap-1 mb-3 ">
               <label htmlFor="email">Email</label>
               <input
                 className="px-3 text-[#d0d2d6]  py-2 outline-none border-slate-700 bg-transparent border rounded focus:border-indigo-500 overflow-hidden"
-                value={formData.email}
-                onChange={handleInputChange}
                 type="email"
+                onChange={handleInputChange}
+                value={formData.email}
                 name="email"
                 placeholder="Email"
                 id="email"
@@ -70,9 +57,9 @@ function Register() {
               <label htmlFor="password">Password</label>
               <input
                 className="px-3 text-[#d0d2d6]  py-2 outline-none border-slate-700 bg-transparent border rounded focus:border-indigo-500 overflow-hidden"
-                value={formData.password}
-                onChange={handleInputChange}
                 type="password"
+                onChange={handleInputChange}
+                value={formData.password}
                 name="password"
                 placeholder="Password"
                 id="password"
@@ -91,18 +78,16 @@ function Register() {
                 I agree to privacy and policy and terms
               </label>
             </div>
-            <p className="text-sm mb-3">
-              Please register to your account and start your business
-            </p>
+
             <button
               type="submit"
               className="bg-blue-600 w-full hover:shadow-ble-500/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3"
             >
               Sign up
             </button>
-            <div className="flex justify-center mb-3 gap-3">
+            <div className="flex  mb-3 gap-3 justify-center">
               <p>
-                Already have an account? <Link to="/login">Sign in</Link>
+                Don't have an account? <Link to="/register">Sign up</Link>
               </p>
             </div>
           </form>
@@ -112,4 +97,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default AdminLogin;
