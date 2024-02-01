@@ -10,6 +10,7 @@ export const admin_login = createAsyncThunk(
       const { data } = await api.post("users/admin-login", info, {
         withCredentials: true,
       });
+      localStorage.setItem("accessToken", data?.data.token);
       return fulfillWithValue(data);
     } catch (error: any) {
       return rejectWithValue(error.response.data);
