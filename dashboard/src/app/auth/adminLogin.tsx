@@ -1,10 +1,17 @@
-import { FormEvent, useState } from "react";
-import { useDispatch } from "react-redux";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FormEvent, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { admin_login } from "../../store/reducers/authReducer";
+import { AppDispatch, RootState } from "../../store";
+import { admin_login, messageClear } from "../../store/reducers/authReducer";
 
 function AdminLogin() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+  const { loader, errorMessage, successMessage } = useSelector<
+    RootState,
+    RootState["auth"]
+  >((state) => state.auth);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -23,8 +30,19 @@ function AdminLogin() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     await dispatch(admin_login(formData));
-    console.log(formData);
   };
+
+  useEffect(() => {
+    if (errorMessage) {
+      toast.error(errorMessage);
+      dispatch(messageClear());
+    }
+    if (successMessage) {
+      toast.success(successMessage);
+      dispatch(messageClear());
+    }
+  }, [errorMessage, successMessage, dispatch]);
+
   return (
     <section className="min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center">
       <div className="w-[380px] text-[#d0d2d6] p-2">
@@ -80,10 +98,11 @@ function AdminLogin() {
             </div>
 
             <button
+              disabled={loader}
               type="submit"
               className="bg-blue-600 w-full hover:shadow-ble-500/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3"
             >
-              Sign up
+              {loader ? "Please wait..." : "Sign in"}
             </button>
             <div className="flex  mb-3 gap-3 justify-center">
               <p>
