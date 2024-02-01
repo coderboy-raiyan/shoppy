@@ -2,12 +2,14 @@
 import { FormEvent, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../store";
 import { admin_login, messageClear } from "../../store/reducers/authReducer";
 
 function AdminLogin() {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+
   const { loader, errorMessage, successMessage } = useSelector<
     RootState,
     RootState["auth"]
@@ -40,8 +42,9 @@ function AdminLogin() {
     if (successMessage) {
       toast.success(successMessage);
       dispatch(messageClear());
+      navigate("/");
     }
-  }, [errorMessage, successMessage, dispatch]);
+  }, [errorMessage, successMessage, dispatch, navigate]);
 
   return (
     <section className="min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center">

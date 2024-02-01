@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import bcrypt from 'bcrypt';
 import { StatusCodes } from 'http-status-codes';
 import ApiError from '../../../errors/ApiError';
@@ -23,8 +24,22 @@ const adminLoginService = async (payload: { email: string; password: string }) =
     }
 };
 
+const getUserServices = async (role: string, id: string) => {
+    try {
+        if (role === 'admin') {
+            const user = await AdminModel.findById(id);
+            return user;
+        } else {
+            console.log('seller info');
+        }
+    } catch (error: any) {
+        throw new Error(error.message);
+    }
+};
+
 const userServices = {
     adminLoginService,
+    getUserServices,
 };
 
 export default userServices;
