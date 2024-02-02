@@ -35,11 +35,7 @@ function Sidebar({
       >
         <div className="h-[70px] flex justify-center items-center">
           <Link className="w-[180px] h-[50px]" to="/">
-            <img
-              className="w-full h-full"
-              src="http://localhost:5173/public/images/logo.png"
-              alt=""
-            />
+            <img className="w-full h-full" src="/images/logo.png" alt="" />
           </Link>
         </div>
 

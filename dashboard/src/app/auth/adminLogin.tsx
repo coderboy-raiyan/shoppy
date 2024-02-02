@@ -52,11 +52,7 @@ function AdminLogin() {
         <div className="bg-[#283046] p-4 rounded-md">
           <div className="h-[70px] flex justify-center items-center">
             <div className="w-[180px] h-[60px]">
-              <img
-                className="w-full h-full"
-                src="http://localhost:5173/images/logo.png"
-                alt=""
-              />
+              <img className="w-full h-full" src="/images/logo.png" alt="" />
             </div>
           </div>
 

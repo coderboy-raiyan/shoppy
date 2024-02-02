@@ -26,11 +26,7 @@ function Login() {
         <div className="bg-[#283046] p-4 rounded-md">
           <div className="h-[70px] flex justify-center items-center">
             <div className="w-[180px] h-[60px]">
-              <img
-                className="w-full h-full"
-                src="http://localhost:5173/images/logo.png"
-                alt=""
-              />
+              <img className="w-full h-full" src="/images/logo.png" alt="" />
             </div>
           </div>
           <h2 className="text-xl mb-3 text-center">Welcome to ecommerce</h2>

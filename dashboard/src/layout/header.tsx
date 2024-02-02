@@ -37,7 +37,7 @@ function Header({
               </div>
               <img
                 className="w-[45px] h-[45px] rounded-full overflow-hidden"
-                src="http://localhost:5173/public/images/admin.jpg"
+                src="/images/admin.jpg"
                 alt=""
               />
             </div>
