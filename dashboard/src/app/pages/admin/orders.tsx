@@ -5,7 +5,7 @@ import Pagination from "../../components/Pagination/Pagination";
 
 function Orders() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchValue, setSearchValue] = useState("");
+  // const [searchValue, setSearchValue] = useState("");
   const [perPage, setPerPage] = useState(5);
   const [show, setShow] = useState(false);
 
