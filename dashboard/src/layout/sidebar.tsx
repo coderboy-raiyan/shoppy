@@ -25,11 +25,11 @@ function Sidebar({
         onClick={() => setShowSideBar(false)}
         className={`fixed duration-200 ${
           showSideBar ? "visible" : "invisible"
-        } w-screen h-screen bg-[#22292f80] top-0 left-0 z-10`}
+        } w-screen h-screen bg-[#22292f80] top-0 left-0 z-[110]`}
       ></div>
 
       <div
-        className={`w-[260px] fixed bg-[#283046] z-50 top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] transition-all ${
+        className={`w-[260px] fixed bg-[#283046] z-[120] top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] transition-all ${
           showSideBar ? "left-0" : "-left-[260px] lg:left-0"
         }`}
       >

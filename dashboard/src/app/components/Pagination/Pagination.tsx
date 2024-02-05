@@ -13,13 +13,14 @@ function Pagination({
 
   const diff = totalPage - pageNumber; // 9
   if (diff <= showItem) {
-    startPage = totalPage - showItem;
+    // 9 <= 3
+    startPage = totalPage - showItem; // 10 - 3
   }
   const endPage = startPage < 0 ? showItem : showItem + startPage;
   if (startPage <= 0) {
     startPage = 1;
   }
-
+  console.log(startPage, endPage);
   const createBtn = () => {
     const btns = [];
 
@@ -34,7 +35,7 @@ function Pagination({
               : "bg-slate-700 hover:bg-indigo-500 shadow-lg hover:shadow-indigo-500/50 hover:text-white text-[#d0d2d6] "
           } w-[33px] h-[33px] rounded-full flex justify-center items-center cursor-pointer`}
         >
-          {i}
+          <button>{i}</button>
         </li>
       );
     }
@@ -44,20 +45,25 @@ function Pagination({
   return (
     <ul className="flex gap-3">
       {pageNumber > 1 && (
-        <li
-          onClick={() => setPageNumber((prev) => prev - 1)}
-          className="w-[33px] h-[33px] rounded-full flex justify-center items-center bg-slate-700 text-[#d0d2d6] cursor-pointer"
-        >
-          <BsChevronDoubleLeft />
+        <li>
+          <button
+            className="w-[33px] h-[33px] rounded-full flex justify-center items-center bg-slate-700 text-[#d0d2d6] cursor-pointer"
+            onClick={() => setPageNumber((prev) => prev - 1)}
+          >
+            <BsChevronDoubleLeft />
+          </button>
         </li>
       )}
       {createBtn()}
       {pageNumber < totalPage && (
-        <li
-          onClick={() => setPageNumber((prev) => prev + 1)}
-          className="w-[33px] h-[33px] rounded-full flex justify-center items-center bg-slate-700 text-[#d0d2d6] cursor-pointer"
-        >
-          <BsChevronDoubleRight />
+        <li>
+          <button
+            onClick={() => setPageNumber((prev) => prev + 1)}
+            className="w-[33px] h-[33px] rounded-full flex justify-center items-center bg-slate-700 text-[#d0d2d6] cursor-pointer"
+          >
+            {" "}
+            <BsChevronDoubleRight />
+          </button>
         </li>
       )}
     </ul>
