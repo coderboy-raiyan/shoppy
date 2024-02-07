@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import SellerRequest from "../../app/pages/admin/sellerRequest";
 
 const AdminDashboard = lazy(
   () => import("../../app/pages/admin/adminDashboard")
@@ -8,6 +9,9 @@ const Category = lazy(() => import("../../app/pages/admin/category"));
 const Sellers = lazy(() => import("../../app/pages/admin/sellers"));
 const PaymentRequest = lazy(
   () => import("../../app/pages/admin/paymentRequest")
+);
+const DeActiveSellers = lazy(
+  () => import("../../app/pages/admin/deactiveSellers")
 );
 
 const adminRoutes = [
@@ -34,6 +38,16 @@ const adminRoutes = [
   {
     path: "/admin/dashboard/payment-request",
     element: <PaymentRequest />,
+    role: "admin",
+  },
+  {
+    path: "/admin/dashboard/deactive-sellers",
+    element: <DeActiveSellers />,
+    role: "admin",
+  },
+  {
+    path: "/admin/dashboard/sellers-request",
+    element: <SellerRequest />,
     role: "admin",
   },
 ];
