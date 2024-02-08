@@ -11,8 +11,9 @@ const PaymentRequest = lazy(
   () => import("../../app/pages/admin/paymentRequest")
 );
 const DeActiveSellers = lazy(
-  () => import("../../app/pages/admin/deactiveSellers")
+  () => import("../../app/pages/admin/deActiveSellers")
 );
+const SellerDetails = lazy(() => import("../../app/pages/admin/sellerDetails"));
 
 const adminRoutes = [
   {
@@ -48,6 +49,11 @@ const adminRoutes = [
   {
     path: "/admin/dashboard/sellers-request",
     element: <SellerRequest />,
+    role: "admin",
+  },
+  {
+    path: "/admin/dashboard/sellers/details/:sellerId",
+    element: <SellerDetails />,
     role: "admin",
   },
 ];

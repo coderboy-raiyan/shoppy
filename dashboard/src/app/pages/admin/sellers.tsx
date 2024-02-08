@@ -119,7 +119,7 @@ function Sellers() {
                 >
                   <div className="flex justify-start items-center gap-4">
                     <Link
-                      to=""
+                      to={`/admin/dashboard/sellers/details/${1}`}
                       className="p-[6px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50 text-white"
                     >
                       <FaEye />

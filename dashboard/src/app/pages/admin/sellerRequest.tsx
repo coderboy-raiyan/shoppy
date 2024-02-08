@@ -55,7 +55,7 @@ function SellerRequest() {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr className="border-b border-slate-700">
                 <td
                   scope="row"
                   className="py-4 px-4 font-medium whitespace-nowrap"
