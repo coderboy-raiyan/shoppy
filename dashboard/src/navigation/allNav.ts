@@ -67,6 +67,6 @@ export const allNav: INavigation[] = [
     title: "Chat Seller",
     icon: CiChat1,
     role: "admin",
-    path: "/admin/dashboard/chat-seller",
+    path: "/admin/dashboard/chat-sellers",
   },
 ];
