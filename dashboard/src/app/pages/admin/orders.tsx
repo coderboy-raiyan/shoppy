@@ -52,7 +52,7 @@ function Orders() {
                 <div className="py-4 w-[18%]">pending</div>
                 <div className="py-4 w-[18%]">pending</div>
                 <div className="py-4 w-[18%]">
-                  <Link to="">View</Link>
+                  <Link to={`/admin/dashboard/orders/details/${1}`}>View</Link>
                 </div>
                 <div
                   onClick={() => setShow(!show)}
