@@ -15,7 +15,7 @@ function Sidebar({
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const navs = getNavs("admin");
+    const navs = getNavs("seller");
     setAllNav(navs);
   }, []);
 
