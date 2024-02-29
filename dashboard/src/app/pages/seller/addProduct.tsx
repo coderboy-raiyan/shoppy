@@ -41,8 +41,7 @@ function AddProduct() {
   const [allCategory, setAllCategory] = useState(categories);
   const [category, setCategory] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [images, setImages] = useState<any>([]);
+  const [, setImages] = useState<any>([]);
   const [imageShow, setImageShow] = useState<any>([]);
 
   const handleInputChange = (

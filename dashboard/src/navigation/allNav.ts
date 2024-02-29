@@ -88,7 +88,7 @@ export const allNav: INavigation[] = [
     title: "All Product",
     icon: AiFillDashboard,
     role: "seller",
-    path: "/seller/dashboard/all-product",
+    path: "/seller/dashboard/products",
   },
   {
     id: crypto.randomUUID() as string,
