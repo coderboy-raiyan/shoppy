@@ -10,6 +10,7 @@ const DiscountProducts = lazy(
   () => import("../../app/pages/seller/discountProducts")
 );
 const Orders = lazy(() => import("../../app/pages/seller/orders"));
+const Payments = lazy(() => import("../../app/pages/seller/payments"));
 
 const sellerRoutes = [
   {
@@ -40,6 +41,11 @@ const sellerRoutes = [
   {
     path: "/seller/dashboard/orders",
     element: <Orders />,
+    ability: ["seller"],
+  },
+  {
+    path: "/seller/dashboard/payments",
+    element: <Payments />,
     ability: ["seller"],
   },
 ];
