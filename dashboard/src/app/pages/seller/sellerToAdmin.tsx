@@ -1,74 +1,20 @@
-import { useState } from "react";
-import { FaList } from "react-icons/fa";
-import { IoMdClose } from "react-icons/io";
-
-function SellerToCustomer() {
-  const [show, setShow] = useState(false);
-  const sellerId = 12;
+function SellerToAdmin() {
   return (
     <div className="px-7 lg:px-7 py-5">
       <div className="w-full p-4 bg-[#283046] rounded-md h-[calc(100vh-140px)]">
         <div className="flex w-full h-full relative ">
-          <div
-            className={`w-[280px] h-full absolute z-10 ${
-              show ? "-left-[16px]" : "-left-[336px]"
-            } md:left-0 md:relative transition-all `}
-          >
-            <div className="w-full h-[calc(100vh-177px)] bg-[#252b3b] md:bg-transparent overflow-y-auto">
-              <div className="flex text-xl justify-between items-center p-4 md:p-0 md:px-3 md:pb-3 text-white">
-                <h2>Customers</h2>
-                <span
-                  onClick={() => setShow(!show)}
-                  className="block cursor-pointer md:hidden"
-                >
-                  <IoMdClose />
-                </span>
-              </div>
-              <div
-                className={`h-[60px] flex justify-start gap-2 items-center text-white px-4 py-2 rounded-sm cursor-pointer bg-slate-700`}
-              >
-                <div className="relative ">
+          <div className="w-full  md:pl-4">
+            <div className="flex justify-between items-center">
+              <div className="flex justify-start items-center gap-3">
+                <div className="relative">
                   <img
-                    className="w-[38px] h-[38px] border-2 max-w-[38px] p-[2px] rounded-full"
+                    className="w-[40px] h-[40px] border-2 border-green-500 max-w-[38px] p-[2px] rounded-full"
                     src="/images/admin.jpg"
                     alt=""
                   />
                   <div className="w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0 "></div>
                 </div>
-
-                <div className="flex justify-center items-start flex-col w-full ">
-                  <div className="flex justify-between items-center w-full">
-                    <h2 className="text-[16px] font-semibold">Raiyan</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full md:w-[calc(100%-200px)] md:pl-4">
-            <div className="flex justify-between items-center">
-              {sellerId && (
-                <div className="flex justify-start items-center gap-3">
-                  <div className="relative">
-                    <img
-                      className="w-[40px] h-[40px] border-2 border-green-500 max-w-[38px] p-[2px] rounded-full"
-                      src="/images/admin.jpg"
-                      alt=""
-                    />
-                    <div className="w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0 "></div>
-                  </div>
-                  <h2 className="text-base font-semibold text-white">
-                    Tajkier Haque Raiyan
-                  </h2>
-                </div>
-              )}
-              <div
-                onClick={() => setShow(!show)}
-                className="w-[35px] flex md:hidden h-[35px] rounded-sm bg-blue-500 shadow-lg hover:shadow-blue-500/50 justify-center cursor-pointer items-center text-center"
-              >
-                <span>
-                  <FaList />
-                </span>
+                <h2 className="text-base font-semibold text-white">Support</h2>
               </div>
             </div>
 
@@ -125,4 +71,4 @@ function SellerToCustomer() {
   );
 }
 
-export default SellerToCustomer;
+export default SellerToAdmin;

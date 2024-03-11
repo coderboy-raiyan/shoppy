@@ -11,6 +11,12 @@ const DiscountProducts = lazy(
 );
 const Orders = lazy(() => import("../../app/pages/seller/orders"));
 const Payments = lazy(() => import("../../app/pages/seller/payments"));
+const SellerToCustomer = lazy(
+  () => import("../../app/pages/seller/sellerToCustomer")
+);
+const SellerToAdmin = lazy(
+  () => import("../../app/pages/seller/sellerToAdmin")
+);
 
 const sellerRoutes = [
   {
@@ -21,32 +27,55 @@ const sellerRoutes = [
   {
     path: "/seller/dashboard",
     element: <SellerDashboard />,
-    ability: ["seller"],
+    role: "seller",
+    status: "active",
   },
   {
     path: "/seller/dashboard/add-product",
     element: <AddProduct />,
-    ability: ["seller"],
+    role: "seller",
+    status: "active",
   },
   {
     path: "/seller/dashboard/products",
     element: <Products />,
-    ability: ["seller"],
+    role: "seller",
+    status: "active",
   },
   {
     path: "/seller/dashboard/discount-products",
     element: <DiscountProducts />,
-    ability: ["seller"],
+    role: "seller",
+    status: "active",
   },
   {
     path: "/seller/dashboard/orders",
     element: <Orders />,
-    ability: ["seller"],
+    role: "seller",
+    ability: ["active", "deactive"],
   },
   {
     path: "/seller/dashboard/payments",
     element: <Payments />,
-    ability: ["seller"],
+    role: "seller",
+    status: "active",
+  },
+  {
+    path: "/seller/dashboard/chat-support",
+    element: <SellerToAdmin />,
+    ability: ["active", "deactive", "pending"],
+  },
+  {
+    path: "/seller/dashboard/chat-customer",
+    element: <SellerToCustomer />,
+    role: "seller",
+    status: "active",
+  },
+  {
+    path: "/seller/dashboard/chat-customer/:customerId",
+    element: <SellerToCustomer />,
+    role: "seller",
+    status: "active",
   },
 ];
 
